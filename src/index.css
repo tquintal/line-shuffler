@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Saira", sans-serif;
+}
+
+#root {
+  color-scheme: dark;
+}
+
+.main-container {
+  background-color: #1b1b1b;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.work-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  gap: 5px;
+}
+
+.title {
+  align-self: flex-start;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+textarea {
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  border: 1px solid #ffffff;
+  padding: 10px;
+  height: 100%;
+}
+
+.button-container {
+  display: flex;
+  gap: 5px;
+  align-self: flex-end;
+}
+
+button {
+  all: unset;
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #ffffff;
+  text-align: center;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 15px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 320px) {
+  .button-container {
+    justify-content: space-between;
+    align-self: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .work-container {
+    width: 80%;
+  }
+}
