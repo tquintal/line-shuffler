@@ -71,7 +71,7 @@ button {
   color: #ffffff;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .button-container {
     justify-content: space-between;
     align-self: auto;
