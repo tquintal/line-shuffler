@@ -3,17 +3,19 @@ import { shuffle } from './utils'
 import { FiGithub } from 'react-icons/fi'
 
 function App() {
-  // const defaultValues = '🍏\n🍎\n🍐\n🍊\n🍋\n🍌\n🍉\n🍇\n🫐\n🍓\n🍈\n🍒\n🍑\n🥭\n🍍\n🥥\n🥝\n🍅\n🥑\n🥒'
-
   const ref = useRef(null)
+
+  const clearTextArea = () => {
+    ref.current.value = ''
+  }
 
   const shuffleTextArea = () => {
     const shuffled = shuffle(ref.current.value.split('\n'))
-    ref.current.value = ''
+    clearTextArea()
 
     for (let i = 0; i < shuffled.length; i++) {
       if (shuffled[i] !== '')
-        ref.current.value += `${shuffled[i]}\n`
+        ref.current.value += shuffled[i] + '\n'
     }
   }
 
@@ -22,15 +24,11 @@ function App() {
     alert('Copied to clipboard')
   }
 
-  const clearTextArea = () => {
-    ref.current.value = ''
-  }
-
   return (
     <div className='main-container'>
       <div className='work-container' >
         <h1 className='title'>Line shuffler</h1>
-        <textarea ref={ref} placeholder={'Write here'}></textarea>
+        <textarea ref={ref} placeholder={'Hello world'}></textarea>
         <div className='button-container'>
           <button onClick={shuffleTextArea}>Shuffle</button>
           <button onClick={copyToClipboard}>Copy</button>
