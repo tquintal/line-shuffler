@@ -24,9 +24,16 @@ function App() {
     alert('Copied to clipboard')
   }
 
+  setTimeout(() => {
+    const workContainer = document.querySelector('.work-container')
+    const footer = document.querySelector('.footer')
+    workContainer.style.opacity = 1
+    footer.style.opacity = 1
+  }, 500)
+
   return (
-    <div className='main-container'>
-      <div className='work-container' >
+    <main>
+      <div className='work-container'>
         <h1 className='title'>Line shuffler</h1>
         <textarea ref={ref} placeholder={'Hello world'}></textarea>
         <div className='button-container'>
@@ -36,7 +43,7 @@ function App() {
         </div>
       </div>
       <a href='https://github.com/tquintal/' target='_blank' rel='noreferrer' className='footer'><FiGithub /> tquintal</a>
-    </div>
+    </main>
   )
 }
 

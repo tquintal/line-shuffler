@@ -9,7 +9,7 @@
   color-scheme: dark;
 }
 
-.main-container {
+main {
   background-color: #1b1b1b;
   color: #ffffff;
   display: flex;
@@ -25,6 +25,8 @@
   width: 50%;
   height: 50%;
   gap: 5px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .title {
@@ -66,6 +68,8 @@ button {
   padding: 15px;
   text-decoration: none;
   color: #ffffff;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 @media screen and (max-width: 480px) {
