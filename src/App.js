@@ -1,49 +1,22 @@
-import { useRef } from 'react'
-import { shuffle } from './utils'
+import React, { useState } from 'react'
+// import { shuffle } from './helpers'
+import classes from './App.module.css'
 import { FiGithub } from 'react-icons/fi'
+import WorkContainer from './components/WorkContainer'
 
 function App() {
-  const ref = useRef(null)
-
-  const clearTextArea = () => {
-    ref.current.value = ''
-  }
-
-  const shuffleTextArea = () => {
-    const shuffled = shuffle(ref.current.value.split('\n'))
-    clearTextArea()
-
-    for (let i = 0; i < shuffled.length; i++) {
-      if (shuffled[i] !== '')
-        ref.current.value += shuffled[i] + '\n'
-    }
-  }
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(ref.current.value)
-    alert('Copied to clipboard')
-  }
+  const [footer, setFooter] = useState(false)
 
   setTimeout(() => {
-    const workContainer = document.querySelector('.work-container')
-    const footer = document.querySelector('.footer')
-    workContainer.style.opacity = 1
-    footer.style.opacity = 1
+    setFooter(true)
   }, 500)
 
   return (
-    <main>
-      <div className='work-container'>
-        <h1 className='title'>Line shuffler</h1>
-        <textarea ref={ref} placeholder={'Hello world'}></textarea>
-        <div className='button-container'>
-          <button onClick={shuffleTextArea}>Shuffle</button>
-          <button onClick={copyToClipboard}>Copy</button>
-          <button onClick={clearTextArea}>Clear</button>
-        </div>
-      </div>
-      <a href='https://github.com/tquintal/' target='_blank' rel='noreferrer' className='footer'><FiGithub /> tquintal</a>
-    </main>
+    <React.Fragment>
+      {/* <WorkContainer onShuffle={shuffle} /> */}
+      <WorkContainer />
+      <a href='https://github.com/tquintal/' target='_blank' rel='noreferrer' className={`${classes['footer']} ${footer ? classes['footer-active'] : ''}`}><FiGithub /> tquintal</a>
+    </React.Fragment>
   )
 }
 
